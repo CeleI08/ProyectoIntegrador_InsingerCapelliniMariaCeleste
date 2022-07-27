@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './componentes/header/header.component';
 import { LogoAPComponent } from './componentes/logo-ap/logo-ap.component';
 import { BannerComponent } from './componentes/banner/banner.component';
@@ -13,6 +14,11 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { HysComponent } from './componentes/hys/hys.component';
 import { ProyectoComponent } from './componentes/proyecto/proyecto.component';
 import { FooterComponent } from './componentes/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './componentes/home/home.component';
+import { LoginComponent } from './componentes/login/login.component';
+
+
 
 @NgModule({
   declarations: [
@@ -25,12 +31,17 @@ import { FooterComponent } from './componentes/footer/footer.component';
     EducacionComponent,
     HysComponent,
     ProyectoComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgCircleProgressModule.forRoot({})  
+    BrowserAnimationsModule,
+    FormsModule,
+    NgCircleProgressModule.forRoot({}),
+    HttpClientModule, 
   ],
   providers: [],
   bootstrap: [AppComponent]
