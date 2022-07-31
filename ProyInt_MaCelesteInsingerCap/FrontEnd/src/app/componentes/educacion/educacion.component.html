@@ -1,29 +1,32 @@
 <div class="row">
-    <h1>Educación</h1>
-    <div class="col-lg-1"></div>
+    <h1>Educacion</h1>
+    <div class="col-lg-2">
+        <button type="button" class="btn btn-dark" routerLink="/nuevaedu" *ngIf="isLogged">
+            Agregar Educacion
+        </button>
+    </div>
+
+    <div class="col lg 1"></div>
     <div class="col-lg-11">
-        <ul>
-            <li>
-                <h2>Secundario</h2> - <h3>(2005)</h3>
-            </li>
-            <p>Educación Polimodal Modalidad PRODUCCION DE BIENES Y SERVICIOS</p>
-            <p>Itinerarios formativos :  Asistencia en ambientes de aplicación - Síntesis de Imágenes y Animación</p>
-            <p>Escuela de Enseñanza Media Nº 331  “Alte. G. Brown</p>
-        </ul>
-        <ul>
-            <li>
-                <h2>Universitario</h2> - <h3>(2013)</h3>
-            </li>
-            <p>ARQUITECTA</p>
-            <p>U. C. S. F. - Universidad Católica de Santa Fe</p>
-        </ul>
-        <ul>
-            <li>
-                <h2>Pos-Grado</h2> - <h3>(2015-2018)</h3>
-            </li>
-            <p>ESPECIALIZACIÓN EN PERICIA Y TASACIÓN EN OBRAS DE ARQUITECTURA Y URBANISMO</p>
-            <p>UNL – Universidad Nacional del Litoral </p>
-        </ul>
+        <table class="table">
+            <tbody>
+                <tr *ngFor="let Educacion of educacion">
+                    <td>
+                        <h5>{{Educacion.nombreE}}</h5>
+                    </td>
+                    <td>{{Educacion.descripcionE}}</td>
+                    <td *ngIf="isLogged">
+                        <button class="btn btn-light" routerLink="/editedu/{{Educacion.id}}">
+                            <i class="bi bi-pencil-fill"></i>EDITAR</button>
+                    </td>
+
+                    <td *ngIf="isLogged">
+                        <button class="btn btn-danger" (click)="delete(Educacion.id)">
+                            <i class="bi bi-trash3-fill"></i>BORRAR</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
 </div>
