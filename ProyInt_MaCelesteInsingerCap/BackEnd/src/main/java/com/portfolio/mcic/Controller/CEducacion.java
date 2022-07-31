@@ -45,8 +45,8 @@ public class CEducacion {
 
         Educacion educacion = sEducacion.getOne(id).get();
         return new ResponseEntity(educacion, HttpStatus.OK);
-    }    
-    
+    }
+
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoEducacion dtoeducacion) {
         if (StringUtils.isBlank(dtoeducacion.getNombreE())) {
@@ -60,8 +60,8 @@ public class CEducacion {
         sEducacion.save(educacion);
 
         return new ResponseEntity(new Mensaje("Educacion agregada"), HttpStatus.OK);
-    }    
-        
+    }
+    
     @PutMapping("/update/(id)")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoEducacion dtoeducacion) {
         //Validamos si existe el ID
